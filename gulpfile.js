@@ -24,6 +24,7 @@ var paths = {
   images: 'app/img/**/*'
 };
 
+// Remove previous build
 gulp.task('clean', function(){
   return gulp.src(paths.dest, {read: false})
     .pipe(clean());
@@ -39,6 +40,7 @@ gulp.task('sync', ['clean'], function(){
     .pipe(gulp.dest(paths.dest));
 });
 
+// Compile all angular js files with google closure compiler
 gulp.task('compile', ['clean', 'sass', 'lint'], function() {
   return gulp.src([].concat.apply([], [
       paths.ngComponents,
@@ -61,18 +63,21 @@ gulp.task('compile', ['clean', 'sass', 'lint'], function() {
     .pipe(gulp.dest(paths.dest));
 });
 
+// Compile Sass
 gulp.task('sass', ['clean'], function() {
   return gulp.src(paths.src + '/styles/main.scss')
     .pipe(sass())
     .pipe(gulp.dest(paths.dest + '/styles/'));
 });
 
+// Javascript linter
 gulp.task('lint', function() {
   return gulp.src([paths.src + '/**/*.js', '!' + paths.src + '/styles/**/*'])
     .pipe(jshint())
     .pipe(jshint.reporter('default'));
 });
 
+// Inject sources in index.html
 gulp.task('inject', ['clean', 'compile', 'concat'], function() {
   return gulp.src(paths.src + '/index.html')
     // Ordered css
@@ -96,6 +101,7 @@ gulp.task('inject', ['clean', 'compile', 'concat'], function() {
     .pipe(gulp.dest(paths.dest));
 });
 
+// Concatenate bower js files
 gulp.task('concat', ['clean'], function() {
   return bowerFiles({
     env: process.env.NODE_ENV || 'development'
@@ -104,6 +110,7 @@ gulp.task('concat', ['clean'], function() {
     .pipe(gulp.dest(paths.dest + '/'));
 });
 
+// Copy ressources from src to dest folder
 gulp.task('copy', ['clean'], function() {
   gulp.src(paths.src + '/states/**/*.html')
     .pipe(gulp.dest(paths.dest + '/states/'));
@@ -123,6 +130,7 @@ gulp.task('copy', ['clean'], function() {
     .pipe(gulp.dest(paths.dest));
 });
 
+// Add livereload
 gulp.task('connect', function(next) {
   var connect = require('connect');
   var server = connect();
