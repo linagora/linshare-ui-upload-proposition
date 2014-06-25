@@ -12,6 +12,7 @@ var gutil = require('gulp-util');
 var filter = require('gulp-filter');
 
 var sync = require('sync-pkg');
+var browserSync = require('browser-sync');
 
 var paths = {
   src: 'app',
@@ -130,24 +131,29 @@ gulp.task('copy', ['clean'], function() {
     .pipe(gulp.dest(paths.dest));
 });
 
-// Add livereload
-gulp.task('connect', function(next) {
-  var connect = require('connect');
-  var server = connect();
-  server.use(connect.static(paths.dest)).listen(process.env.PORT || 3501, next);
+// Watch and livereload
+gulp.task('watch', ['build'], function() {
+  browserSync.init({
+    server: {
+      baseDir: [paths.dest]
+    },
+    ports: {
+      min: 3501,
+      max: 3600
+    },
+    notify: false
+  });
+
+  gulp.watch(paths.src + '/**/*', ['bs-reload']);
 });
 
-// Rerun the task when a file changes
-gulp.task('watch', ['build'], function() {
-  var server = livereload();
-  gulp.watch(paths.src + '/**/*', ['build']);
-  //gulp.watch(paths.dest + '/**').on('change', function(file) {
-  //  server.changed(file.path);
-  //});
+// Reload all Browsers
+gulp.task('bs-reload', ['build'], function () {
+    browserSync.reload();
 });
 
 gulp.task('build', ['sync', 'copy', 'concat', 'inject']);
-gulp.task('serve', ['build', 'connect', 'watch']);
+gulp.task('serve', ['build', /*'connect',*/ 'watch']);
 
 // The default task (called when you run `gulp` from cli)
 gulp.task('default', ['build']);
