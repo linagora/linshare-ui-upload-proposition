@@ -3,6 +3,10 @@
   "PARAGRAPH": {
     "DESCRIPTION": "Ce formulaire vous permettra de soumettre une demande d'invitation de dépôt à votre interlocuteur. Un courriel vous sera adressé suite à l'acceptation ou au refus de votre demande. En cas d'une réponse positive, les informations nécessaires pour déposer vos fichiers vous seront transmises"
   },
+  "LANGUAGE": {
+    "ENGLISH": "Anglais",
+    "FRENCH": "Français"
+  },
   "LEGEND_USER": "Coordonnées",
   "LEGEND_PROPOSAL": "Demande",
   "LEGEND_VALIDATE": "Validation",

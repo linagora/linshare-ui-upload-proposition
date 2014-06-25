@@ -6,17 +6,23 @@ goog.provide('my.upload_proposition.Ctrl');
  * UploadProposition controller.
  *
  * @param {!angular.$http} $http The angular http service
+ * @param {!pascalprecht.translate} $translate The translation service
  * @param {!my.app.lsAppConfig} lsAppConfig The linshare configuration
  * @constructor
  * @ngInject
  * @export
  */
-my.upload_proposition.Ctrl = function($http, lsAppConfig) {
+my.upload_proposition.Ctrl = function($http, $translate, lsAppConfig) {
 
   /**
    * @type {!angular.http}
    */
   this.http_ = $http;
+
+  /**
+   * @type {!pascalprecht.translate}
+   */
+  this.translate_ = $translate;
 
   /**
    * @type {!my.app.lsAppConfig}
@@ -54,4 +60,16 @@ my.upload_proposition.Ctrl.prototype.reset = function() {
 
   console.debug('RESET');
   form = {};
+};
+
+/**
+ * Change the language of the form
+ *
+ * @param {String} key The language (eg. 'en')
+ * @export
+ */
+my.upload_proposition.Ctrl.prototype.changeLanguage = function(key) {
+  var translate = this.translate_;
+
+  translate.use(key);
 };
