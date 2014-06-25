@@ -1,6 +1,6 @@
 'use strict';
 
-goog.require('my.upload_request.module');
+goog.require('my.upload_proposition.module');
 
 /**
  * Main app.
@@ -15,7 +15,7 @@ angular.module('app', [
   'pascalprecht.translate',
   'tmh.dynamicLocale',
   'chieffancypants.loadingBar',
-  my.upload_request.module.name
+  my.upload_proposition.module.name
 ])
 .config(config);
 
@@ -36,7 +36,7 @@ function config($logProvider, $stateProvider, $urlRouterProvider, $translateProv
   var debug = document.cookie.linshareDebug || lsAppConfig.debug;
   $logProvider.debugEnabled(debug);
 
-  $urlRouterProvider.otherwise('/upload_request');
+  $urlRouterProvider.otherwise('/upload_proposition');
 
   $translateProvider.useStaticFilesLoader({
     prefix: 'i18n/locale-',

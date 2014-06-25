@@ -3,18 +3,18 @@
 /**
  * Karma unit tests.
  */
-describe('UploadRequestCtrl', function(){
+describe('UploadPropositionCtrl', function(){
 
   var ctrl;
 
-  beforeEach(module('upload_request'));
+  beforeEach(module('upload_proposition'));
 
   beforeEach(inject(function($injector) {
 
     var $rootScope = $injector.get('$rootScope');
     var $controller = $injector.get('$controller');
 
-    ctrl = $controller('UploadRequestCtrl', {
+    ctrl = $controller('UploadPropositionCtrl', {
       $scope: $rootScope.$new()
     });
   }));

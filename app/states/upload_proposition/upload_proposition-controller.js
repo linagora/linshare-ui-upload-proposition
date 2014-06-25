@@ -1,9 +1,9 @@
 'use strict';
 
-goog.provide('my.upload_request.Ctrl');
+goog.provide('my.upload_proposition.Ctrl');
 
 /**
- * UploadRequest controller.
+ * UploadProposition controller.
  *
  * @param {!angular.$http} $http The angular http service
  * @param {!my.app.lsAppConfig} lsAppConfig The linshare configuration
@@ -11,7 +11,7 @@ goog.provide('my.upload_request.Ctrl');
  * @ngInject
  * @export
  */
-my.upload_request.Ctrl = function($http, lsAppConfig) {
+my.upload_proposition.Ctrl = function($http, lsAppConfig) {
 
   /**
    * @type {!angular.http}
@@ -35,13 +35,13 @@ my.upload_request.Ctrl = function($http, lsAppConfig) {
  *
  * @export
  */
-my.upload_request.Ctrl.prototype.submit = function() {
+my.upload_proposition.Ctrl.prototype.submit = function() {
   var http = this.http_;
   var lsAppConfig = this.lsAppConfig_;
   var form = this.form;
 
   console.debug('SUBMIT');
-  http.post(lsAppConfig.backendURL + '/upload_request', form);
+  http.post(lsAppConfig.backendURL + '/upload_proposition', form);
 };
 
 /**
@@ -49,7 +49,7 @@ my.upload_request.Ctrl.prototype.submit = function() {
  *
  * @export
  */
-my.upload_request.Ctrl.prototype.reset = function() {
+my.upload_proposition.Ctrl.prototype.reset = function() {
   var form = this.form;
 
   console.debug('RESET');
