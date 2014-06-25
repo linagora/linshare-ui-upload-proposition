@@ -33,7 +33,7 @@ angular.module('app', [
  */
 function config($logProvider, $stateProvider, $urlRouterProvider, $translateProvider, tmhDynamicLocaleProvider, cfpLoadingBarProvider, lsAppConfig) {
 
-  var debug = document.cookie.linshareDebug || lsAppConfig.debug;
+  var debug = lsAppConfig.debug;
   $logProvider.debugEnabled(debug);
 
   $urlRouterProvider.otherwise('/upload_proposition');
