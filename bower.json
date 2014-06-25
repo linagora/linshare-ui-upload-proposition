@@ -1,7 +1,7 @@
 {
-  "name": "linshare-didd",
+  "name": "linshare-ui-upload-proposition",
   "version": "0.0.0",
-  "description": "Linshare upload invitation request",
+  "description": "Linshare upload proposition UI",
   "license": "http://www.linshare.org/licenses/LinShare-License_AfferoGPL-v3_en.pdf",
   "homepage": "http://www.linshare.org",
   "authors": [
