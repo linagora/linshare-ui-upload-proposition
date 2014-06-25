@@ -1,7 +1,6 @@
 var gulp = require('gulp');
 
 var closureCompiler = require('gulp-closure-compiler');
-var livereload = require('gulp-livereload');
 var inject = require('gulp-inject');
 var bowerFiles = require('gulp-bower-files');
 var concat = require('gulp-concat');
