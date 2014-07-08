@@ -1,6 +1,8 @@
 'use strict';
 
 goog.require('my.upload_proposition.module');
+goog.require('my.logo.Directive.factory');
+goog.require('my.locale.Service');
 
 /**
  * Main app.
@@ -15,9 +17,12 @@ angular.module('app', [
   'pascalprecht.translate',
   'tmh.dynamicLocale',
   'chieffancypants.loadingBar',
+  'angular-growl',
   my.upload_proposition.module.name
 ])
-.config(config);
+.config(config)
+.directive('logo', my.logo.Directive.factory)
+.service('locale', my.locale.Service);
 
 /**
  * Configuration function.
@@ -36,7 +41,11 @@ function config($logProvider, $stateProvider, $urlRouterProvider, $translateProv
   var debug = lsAppConfig.debug;
   $logProvider.debugEnabled(debug);
 
-  $urlRouterProvider.otherwise('/upload_proposition');
+  $stateProvider.state('404', {
+    url: '/404',
+    templateUrl: 'states/404/404.html',
+  });
+  $urlRouterProvider.otherwise('/404');
 
   $translateProvider.useStaticFilesLoader({
     prefix: 'i18n/locale-',

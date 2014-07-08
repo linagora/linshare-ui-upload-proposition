@@ -28,19 +28,21 @@
     "closure-library-github": "https://github.com/google/closure-library.git",
     "lodash": "~2.4.1",
     "messageformat": "~0.1.8",
-    "angular": "~1.2.17",
-    "angular-cookies": "~1.2.17",
-    "angular-resource": "~1.2.17",
-    "angular-sanitize": "~1.2.17",
+    "angular": "~1.2.19",
+    "angular-cookies": "~1.2.19",
+    "angular-resource": "~1.2.19",
+    "angular-sanitize": "~1.2.19",
     "angular-translate": "~2.2.0",
     "angular-translate-loader-static-files": "~2.2.0",
     "angular-translate-interpolation-messageformat": "~2.1.0",
     "angular-translate-handler-log": "~2.0.0",
     "angular-translate-storage-cookie": "~2.2.0",
-    "angular-dynamic-locale": "~0.1.12",
+    "angular-dynamic-locale": "~0.1.17",
     "angular-ui-router": "~0.2.10",
     "angular-bootstrap": "~0.11.0",
-    "angular-loading-bar": "~0.4.3"
+    "angular-loading-bar": "~0.4.3",
+    "angular-growl": "~0.4.0",
+    "normalize-css": "~3.0.1"
   },
   "overrides": {
     "closure-compiler": {
@@ -56,6 +58,12 @@
       "main": {
         "development": "dist/lodash.js",
         "production": "dist/lodash.min.js"
+      }
+    },
+    "node-uuid": {
+      "main": {
+        "development": "uuid.js",
+        "production": "uuid.js"
       }
     },
     "angular": {
@@ -116,11 +124,11 @@
       "main": {
         "development": [
           "ui-bootstrap.js",
-          "ui-bootstrap.tpls.js"
+          "ui-bootstrap-tpls.js"
         ],
         "production": [
           "ui-bootstrap.min.js",
-          "ui-bootstrap.tpls.min.js"
+          "ui-bootstrap-tpls.min.js"
         ]
       }
     },
@@ -135,9 +143,31 @@
         "development": "build/loading-bar.js",
         "production": "build/loading-bar.min.js"
       }
+    },
+    "ng-flow": {
+      "main": {
+        "development": "dist/ng-flow-standalone.js",
+        "production": "dist/ng-flow-standalone.min.js"
+      }
+    },
+    "angular-growl": {
+      "main": {
+        "development": "build/angular-growl.js",
+        "production": "build/angullar-growl.min.js"
+      }
+    },
+    "ng-table": {
+      "main": {
+        "development": "ng-table.js",
+        "production": "ng-table.min.js"
+      }
+    },
+    "normalize-css": {
+      "ignore": true
     }
   },
   "resolutions": {
-    "angular-translate": "~2.2.0"
+    "angular-translate": "~2.2.0",
+    "angular": "~1.2.19"
   }
 }

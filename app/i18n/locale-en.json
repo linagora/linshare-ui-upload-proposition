@@ -22,5 +22,9 @@
   "FORM_ACTIONS": {
     "RESET": "Reset",
     "SUBMIT": "Submit"
+  },
+  "404": {
+    "TITLE": "Oops! Page not found.",
+    "CONTENT": "We could not find the page you were looking for."
   }
 }

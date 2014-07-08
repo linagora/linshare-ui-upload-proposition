@@ -31,7 +31,7 @@ gulp.task('clean', function(){
 });
 
 // Sync package.json & bower.json
-gulp.task('sync', ['clean'], function(){
+gulp.task('sync', ['clean'], function() {
   sync({
     include: ['name', 'version', 'description', 'license', 'homepage'],
     exclude: ['main']
@@ -41,7 +41,7 @@ gulp.task('sync', ['clean'], function(){
 });
 
 // Compile all angular js files with google closure compiler
-gulp.task('compile', ['clean', 'sass', 'lint'], function() {
+gulp.task('compile', ['clean', 'lint'], function() {
   return gulp.src([].concat.apply([], [
       paths.ngComponents,
       paths.states,
@@ -54,7 +54,10 @@ gulp.task('compile', ['clean', 'sass', 'lint'], function() {
       compilerFlags: {
         compilation_level: 'SIMPLE_OPTIMIZATIONS',
         language_in: 'ECMASCRIPT5_STRICT',
-        externs: [paths.bowerComponents + '/closure-compiler-github/contrib/externs/angular-1.2.js'],
+        externs: [
+          paths.bowerComponents + '/closure-compiler-github/contrib/externs/angular-1.2.js',
+          paths.bowerComponents + '/closure-compiler-github/contrib/externs/underscore-1.5.2.js'
+        ],
         manage_closure_dependencies: true,
         generate_exports: true,
         angular_pass: true
@@ -65,23 +68,37 @@ gulp.task('compile', ['clean', 'sass', 'lint'], function() {
 
 // Compile Sass
 gulp.task('sass', ['clean'], function() {
-  return gulp.src(paths.src + '/styles/main.scss')
+  gulp.src(paths.src + '/styles/main.scss')
     .pipe(sass())
     .pipe(gulp.dest(paths.dest + '/styles/'));
 });
 
 // Javascript linter
 gulp.task('lint', function() {
-  return gulp.src([paths.src + '/**/*.js', '!' + paths.src + '/styles/**/*'])
+  gulp.src([paths.src + '/**/*.js', '!' + paths.src + '/styles/**/*', '!' + paths.src + '/i18n/**/*'])
     .pipe(jshint())
     .pipe(jshint.reporter('default'));
 });
 
 // Inject sources in index.html
-gulp.task('inject', ['clean', 'compile', 'concat'], function() {
+gulp.task('inject', ['clean', 'sass', 'compile', 'bower-concat', 'copy'], function() {
   return gulp.src(paths.src + '/index.html')
     // Ordered css
-    .pipe(inject(gulp.src([paths.dest + '/**/normalize.css', paths.dest + '/**/*.css'], {read: false}),
+    .pipe(inject(
+      gulp.src(
+        [
+          paths.dest + '/**/normalize.css',
+          paths.dest + '/styles/AdminLTE/css/bootstrap.css',
+          paths.dest + '/styles/AdminLTE/css/font-awesome.css',
+          paths.dest + '/styles/AdminLTE/css/AdminLTE.css',
+          paths.dest + '/styles/main.css',
+          paths.dest + '/styles/loading-bar.min.css',
+          paths.dest + '/styles/angular-growl.min.css'
+        ],
+        {
+          read: false
+        }
+      ),
       {
         ignorePath: paths.dest,
         addRootSlash: false
@@ -91,7 +108,8 @@ gulp.task('inject', ['clean', 'compile', 'concat'], function() {
     .pipe(inject(gulp.src([
         paths.dest + '/vendor.js',
         paths.dest + '/app.js',
-        paths.dest + '/config.js'
+        paths.dest + '/config.js',
+        paths.dest + '/i18n/messageformat/**/*'
       ], {read: false}),
       {
         ignorePath: paths.dest,
@@ -102,8 +120,8 @@ gulp.task('inject', ['clean', 'compile', 'concat'], function() {
 });
 
 // Concatenate bower js files
-gulp.task('concat', ['clean'], function() {
-  return bowerFiles({
+gulp.task('bower-concat', ['clean'], function() {
+  bowerFiles({
     env: process.env.NODE_ENV || 'development'
   })
     .pipe(concat('vendor.js'))
@@ -115,17 +133,19 @@ gulp.task('copy', ['clean'], function() {
   gulp.src(paths.src + '/states/**/*.html')
     .pipe(gulp.dest(paths.dest + '/states/'));
   gulp.src(paths.src + '/styles/linshare/fonts/**/*')
-    .pipe(gulp.dest(paths.dest + '/styles/linshare/'));
+    .pipe(gulp.dest(paths.dest + '/styles/linshare/fonts'));
   gulp.src([
     paths.bowerComponents + '/normalize-css/normalize.css',
-    paths.src + '/styles/AdminLTE/css/bootstrap.css',
-    paths.src + '/styles/AdminLTE/css/font-awesome.css',
-    paths.src + '/styles/AdminLTE/css/AdminLTE.css',
-    paths.bowerComponents + '/angular-loading-bar/build/loading-bar.min.css'
+    paths.bowerComponents + '/angular-loading-bar/build/loading-bar.min.css',
+    paths.bowerComponents + '/angular-growl/build/angular-growl.min.css'
   ])
     .pipe(gulp.dest(paths.dest + '/styles/'));
+  gulp.src(paths.src + '/styles/AdminLTE/**/*')
+    .pipe(gulp.dest(paths.dest + '/styles/AdminLTE'));
   gulp.src(paths.src + '/i18n/**/*')
     .pipe(gulp.dest(paths.dest + '/i18n/'));
+  gulp.src(paths.images)
+    .pipe(gulp.dest(paths.dest + '/img/'));
   gulp.src(paths.config)
     .pipe(gulp.dest(paths.dest));
 });
@@ -151,8 +171,8 @@ gulp.task('bs-reload', ['build'], function () {
     browserSync.reload();
 });
 
-gulp.task('build', ['sync', 'copy', 'concat', 'inject']);
-gulp.task('serve', ['build', /*'connect',*/ 'watch']);
+gulp.task('build', ['sync', 'inject']);
+gulp.task('serve', ['build', 'watch']);
 
 // The default task (called when you run `gulp` from cli)
 gulp.task('default', ['build']);

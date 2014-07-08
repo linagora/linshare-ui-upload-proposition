@@ -9,6 +9,7 @@ goog.provide('my.upload_proposition.module');
  * Require controller.
  */
 goog.require('my.upload_proposition.Ctrl');
+goog.require('my.upload_proposition.Service');
 
 
 
@@ -48,4 +49,5 @@ my.upload_proposition.module.configuration = function($stateProvider) {
  */
 my.upload_proposition.module
 .config(my.upload_proposition.module.configuration)
-.controller('UploadPropositionCtrl', my.upload_proposition.Ctrl);
+.controller('UploadPropositionCtrl', my.upload_proposition.Ctrl)
+.service('UploadProposition', my.upload_proposition.Service);

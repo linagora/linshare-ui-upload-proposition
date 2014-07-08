@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="app">
+<html x-ng-app="app">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,17 +10,17 @@
   <!-- endinject -->
 </head>
 <body>
-  
-
-  <header>
-    LOGO
+  <header class="col-md-10 col-md-offset-1" style="padding: 4%; padding-bottom: 0">
+    <img src="img/logo_linshare.png">
+    <span class="pull-right" x-logo></span>
   </header>
   <section class="content container">
     <h1 class="text-center">
       {{'TITLE' | translate}}
     </h1>
 
-    <div ui-view></div>
+    <div x-ui-view></div>
+    <div growl></div>
   </section>
 
   <!-- inject:js -->

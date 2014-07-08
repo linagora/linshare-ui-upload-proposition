@@ -5,29 +5,23 @@ goog.provide('my.upload_proposition.Ctrl');
 /**
  * UploadProposition controller.
  *
- * @param {!angular.$http} $http The angular http service
- * @param {!pascalprecht.translate} $translate The translation service
- * @param {!my.app.lsAppConfig} lsAppConfig The linshare configuration
+ * @param {!my.app.locale} locale
+ * @param {!my.upload_proposition.Service} UploadProposition
  * @constructor
  * @ngInject
  * @export
  */
-my.upload_proposition.Ctrl = function($http, $translate, lsAppConfig) {
+my.upload_proposition.Ctrl = function(locale, UploadProposition) {
 
   /**
-   * @type {!angular.http}
+   * @type {!my.app.locale}
    */
-  this.http_ = $http;
+  this.locale_ = locale;
 
   /**
-   * @type {!pascalprecht.translate}
+   * @type {!my.upload_proposition.UploadProposition}
    */
-  this.translate_ = $translate;
-
-  /**
-   * @type {!my.app.lsAppConfig}
-   */
-  this.lsAppConfig_ = lsAppConfig;
+  this.UploadProposition_ = UploadProposition;
 
   /**
    * @type {Object}
@@ -42,12 +36,10 @@ my.upload_proposition.Ctrl = function($http, $translate, lsAppConfig) {
  * @export
  */
 my.upload_proposition.Ctrl.prototype.submit = function() {
-  var http = this.http_;
-  var lsAppConfig = this.lsAppConfig_;
+  var UploadProposition = this.UploadProposition_;
   var form = this.form;
 
-  console.debug('SUBMIT');
-  http.post(lsAppConfig.backendURL + '/upload_proposition', form);
+  UploadProposition.create(form);
 };
 
 /**
@@ -58,7 +50,6 @@ my.upload_proposition.Ctrl.prototype.submit = function() {
 my.upload_proposition.Ctrl.prototype.reset = function() {
   var form = this.form;
 
-  console.debug('RESET');
   form = {};
 };
 
@@ -69,7 +60,7 @@ my.upload_proposition.Ctrl.prototype.reset = function() {
  * @export
  */
 my.upload_proposition.Ctrl.prototype.changeLanguage = function(key) {
-  var translate = this.translate_;
+  var locale = this.locale_;
 
-  translate.use(key);
+  locale.changeLanguage(key);
 };

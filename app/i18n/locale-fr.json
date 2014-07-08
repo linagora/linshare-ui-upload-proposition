@@ -22,5 +22,9 @@
   "FORM_ACTIONS": {
     "RESET": "Réinitialiser",
     "SUBMIT": "Envoyer"
+  },
+  "404": {
+    "TITLE": "Oups! Page introuvable.",
+    "CONTENT": "Nous ne pouvons pas trouver la page que vous chercher."
   }
 }
