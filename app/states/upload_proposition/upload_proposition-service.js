@@ -39,7 +39,7 @@ my.upload_proposition.Service.prototype.create = function(form) {
   var lsAppConfig = this.lsAppConfig_;
   var apiUrl = this.apiUrl_;
 
-  return $http.post([lsAppConfig.backendURL, apiUrl].join('/'), form).
+  return $http.post([lsAppConfig.backendURL].join('/'), form).
     error(function(data, status) {
       $log.error(data);
       $log.error(status);

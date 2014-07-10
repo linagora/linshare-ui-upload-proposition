@@ -41,14 +41,14 @@
             (uploadPropositionForm.senderEmail.$dirty || ls.uploadPropositionForm.attempted)}">
             <input type="email" class="form-control" name="senderEmail"
                    placeholder="{{'FORM.SENDER_EMAIL' | translate}}"
-                   x-ng-model="upload_proposition.form.senderEmail" />
+                   x-ng-model="upload_proposition.form.mail" />
           </div>
           <div class="form-group"
             x-ng-class="{'has-error': uploadPropositionForm.targetEmail.$invalid &&
             (uploadPropositionForm.targetEmail.$dirty || ls.uploadPropositionForm.attempted)}">
             <input type="email" class="form-control" name="targetEmail"
                    placeholder="{{'FORM.TARGET_EMAIL' | translate}}"
-                   x-ng-model="upload_proposition.form.targetEmail" />
+                   x-ng-model="upload_proposition.form.recipientMail" />
           </div>
         </div>
       </fieldset>
@@ -69,7 +69,7 @@
             (uploadPropositionForm.content.$dirty || ls.uploadPropositionForm.attempted)}">
             <textarea class="form-control" name="content"
                    placeholder="{{'FORM.CONTENT' | translate}}"
-                   x-ng-model="upload_proposition.form.content">
+                   x-ng-model="upload_proposition.form.body">
             </textarea>
           </div>
         </div>
@@ -84,7 +84,7 @@
             (uploadPropositionForm.captcha.$dirty || ls.uploadPropositionForm.attempted)}">
             <input type="text" class="form-control" name="captcha"
                    placeholder="{{'FORM.CAPTCHA' | translate}}"
-                   x-ng-model="upload_proposition.form.captcha" />
+                   x-ng-model="upload_proposition.captcha" />
           </div>
           <div class="form-group">
             <div class="controls">
