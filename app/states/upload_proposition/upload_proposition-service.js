@@ -34,10 +34,6 @@ my.upload_proposition.Service = function(vcRecaptchaService, $http, $log, lsAppC
    */
   this.lsAppConfig_ = lsAppConfig;
 
-  /**
-   * @type {String}
-   */
-  this.apiUrl_ = 'propositions';
 };
 
 /**
@@ -47,7 +43,6 @@ my.upload_proposition.Service.prototype.create = function(form) {
   var $http = this.$http_;
   var $log = this.$log_;
   var lsAppConfig = this.lsAppConfig_;
-  var apiUrl = this.apiUrl_;
 
   return $http.post([lsAppConfig.backendURL].join('/'), form).
     error(function(data, status) {
@@ -60,7 +55,11 @@ my.upload_proposition.Service.prototype.create = function(form) {
  * Validate captcha
  */
 my.upload_proposition.Service.prototype.validateCaptcha = function() {
-  var vcRecaptchaService = vcRecaptchaService_;
+  var $http = this.$http_;
+  var $log = this.$log_;
+  var vcRecaptchaService = this.vcRecaptchaService_;
+  var lsAppConfig = this.lsAppConfig_;
+
   var captcha = vcRecaptchaService.data();
 
   return $http.post([lsAppConfig.backendURL, 'captcha'].join('/'), captcha).
