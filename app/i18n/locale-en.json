@@ -11,10 +11,14 @@
   "LEGEND_PROPOSAL": "Proposal",
   "LEGEND_VALIDATE": "Validation",
   "FORM": {
+    "REQUIRED_FIELD": "This field is required",
+    "REQUIRED_OR_INVALID_FIELD": "This field is not completed",
     "FIRSTNAME": "First name",
     "LASTNAME": "Last name",
     "SENDER_EMAIL": "Your email",
-    "TARGET_EMAIL": "Proposition's recipient",
+    "RECIPIENT_EMAIL": "Proposition's recipient email",
+    "EXAMPLE_SENDER": "eg: john.smith@sender.com",
+    "EXAMPLE_RECIPIENT": "eg: jane.smith@recipient.com",
     "SUBJECT": "Proposition's subject",
     "CONTENT": "Proposition's content",
     "CAPTCHA": "Captcha"

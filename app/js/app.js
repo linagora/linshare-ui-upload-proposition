@@ -33,13 +33,14 @@ angular.module('app', [
  * @param {ng.$logProvider} $logProvider
  * @param {ui.router.$stateProvider} $stateProvider
  * @param {ui.router.$urlRouterProvider} $urlRouterProvider
+ * @param {validation.$validationProvider} $validationProvider
  * @param {pascalprecht.translate.$translateProvider} $translateProvider
  * @param {tmh.dynamicLocale.tmhDynamicLocaleProvider} tmhDynamicLocaleProvider
  * @param {chieffancypants.loadingBar.cfpLoadingBarProvider} cfpLoadingBarProvider
  * @param {app.lsAppConfig} lsAppConfig
  * @ngInject
  */
-function config($logProvider, $stateProvider, $urlRouterProvider, $translateProvider, tmhDynamicLocaleProvider, cfpLoadingBarProvider, lsAppConfig) {
+function config($logProvider, $stateProvider, $urlRouterProvider, $translateProvider, $validationProvider, tmhDynamicLocaleProvider, cfpLoadingBarProvider, lsAppConfig) {
 
   var debug = lsAppConfig.debug;
   $logProvider.debugEnabled(debug);
@@ -58,6 +59,8 @@ function config($logProvider, $stateProvider, $urlRouterProvider, $translateProv
   $translateProvider.addInterpolation('$translateMessageFormatInterpolation');
   $translateProvider.useMissingTranslationHandlerLog();
   $translateProvider.useCookieStorage();
+
+  $validationProvider.showSuccessMessage = false;
 
   tmhDynamicLocaleProvider.localeLocationPattern('i18n/angular/angular-locale_{{locale}}.js');
 

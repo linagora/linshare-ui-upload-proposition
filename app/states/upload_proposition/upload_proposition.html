@@ -16,21 +16,23 @@
         <legend>
           {{'LEGEND_USER' | translate}}
         </legend>
-        <div class="col-md-7 col-md-offset-2">
+        <div class="col-md-8 col-md-offset-2">
           <div class="form-group">
-            <div class="form-inline">
-              <div class="form-group">
+            <div class="row">
+              <div class="col-md-6">
                 <input type="text" class="form-control" name="firstName"
                        placeholder="{{'FORM.FIRSTNAME' | translate}}"
                        x-ng-model="upload_proposition.form.firstName"
                        x-validator="required"
+                       x-required-error-message="{{'FORM.REQUIRED_FIELD' | translate}}"
                        x-valid-method="blur">
               </div>
-              <div class="form-group">
+              <div class="col-md-6">
                 <input type="text" class="form-control" name="lastName"
                        placeholder="{{'FORM.LASTNAME' | translate}}"
                        x-ng-model="upload_proposition.form.lastName"
                        x-validator="required"
+                       x-required-error-message="{{'FORM.REQUIRED_FIELD' | translate}}"
                        x-valid-method="blur">
               </div>
             </div>
@@ -40,14 +42,18 @@
                    placeholder="{{'FORM.SENDER_EMAIL' | translate}}"
                    x-ng-model="upload_proposition.form.mail"
                    x-validator="email"
+                   x-email-error-message="{{'FORM.REQUIRED_OR_INVALID_FIELD' | translate}}"
                    x-valid-method="blur">
+            <span class="help-block">{{'FORM.EXAMPLE_SENDER' | translate}}</span>
           </div>
           <div class="form-group">
             <input type="text" class="form-control" name="targetEmail"
-                   placeholder="{{'FORM.TARGET_EMAIL' | translate}}"
+                   placeholder="{{'FORM.RECIPIENT_EMAIL' | translate}}"
                    x-ng-model="upload_proposition.form.recipientMail"
                    x-validator="email"
+                   x-email-error-message="{{'FORM.REQUIRED_OR_INVALID_FIELD' | translate}}"
                    x-valid-method="blur">
+            <span class="help-block">{{'FORM.EXAMPLE_RECIPIENT' | translate}}</span>
           </div>
         </div>
       </fieldset>
@@ -61,6 +67,7 @@
                    placeholder="{{'FORM.SUBJECT' | translate}}"
                    x-ng-model="upload_proposition.form.subject"
                    x-validator="required"
+                   x-required-error-message="{{'FORM.REQUIRED_FIELD' | translate}}"
                    x-valid-method="blur">
           </div>
           <div class="form-group">
@@ -68,6 +75,7 @@
                    placeholder="{{'FORM.CONTENT' | translate}}"
                    x-ng-model="upload_proposition.form.body"
                    x-validator="required"
+                   x-required-error-message="{{'FORM.REQUIRED_FIELD' | translate}}"
                    x-valid-method="blur">
             </textarea>
           </div>

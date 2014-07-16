@@ -11,10 +11,14 @@
   "LEGEND_PROPOSAL": "Demande",
   "LEGEND_VALIDATE": "Validation",
   "FORM": {
+    "REQUIRED_FIELD": "Ce champs est requis",
+    "REQUIRED_OR_INVALID_FIELD": "Ce champs est incomplet",
     "FIRSTNAME": "Prénom",
     "LASTNAME": "Nom",
     "SENDER_EMAIL": "Votre adresse électronique",
-    "TARGET_EMAIL": "Adresse électronique du destinataire de la demande",
+    "RECIPIENT_EMAIL": "Adresse électronique du destinataire de la demande",
+    "EXAMPLE_SENDER": "ex: john.smith@emetteur.com",
+    "EXAMPLE_RECIPIENT": "ex: jane.smith@destinataire.com",
     "SUBJECT": "Sujet de la demande",
     "CONTENT": "Motif de la demande",
     "CAPTCHA": "Captcha"
