@@ -165,6 +165,12 @@
     },
     "normalize-css": {
       "ignore": true
+    },
+    "angular-recaptcha": {
+      "main": {
+        "development": "release/angular-recaptcha.js",
+        "production": "release/angular-recaptcha.min.js"
+      }
     }
   },
   "resolutions": {
