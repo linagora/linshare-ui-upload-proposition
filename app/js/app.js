@@ -18,6 +18,7 @@ angular.module('app', [
   'tmh.dynamicLocale',
   'chieffancypants.loadingBar',
   'angular-growl',
+  'vcRecaptcha',
   my.upload_proposition.module.name
 ])
 .config(config)

@@ -79,12 +79,10 @@
           {{'LEGEND_VALIDATE' | translate}}
         </legend>
         <div class="col-md-8 col-md-offset-2">
-          <div class="form-group"
-            x-ng-class="{'has-error': uploadPropositionForm.captcha.$invalid &&
-            (uploadPropositionForm.captcha.$dirty || ls.uploadPropositionForm.attempted)}">
-            <input type="text" class="form-control" name="captcha"
-                   placeholder="{{'FORM.CAPTCHA' | translate}}"
-                   x-ng-model="upload_proposition.captcha" />
+          <div x-vc-recaptcha
+               x-tabindex="3"
+               theme="clean"
+               key="upload_proposition.recaptchaPublicKey">
           </div>
           <div class="form-group">
             <div class="controls">

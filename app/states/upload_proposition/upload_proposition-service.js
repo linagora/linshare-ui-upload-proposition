@@ -5,10 +5,20 @@ goog.provide('my.upload_proposition.Service');
 /**
  * UploadProposition service.
  *
+ * @param {!angular-recaptcha.vcRecaptchaService} vcRecaptchaService
+ * @param {!angular.http} $http
+ * @param {!angular.log} $log
+ * @param {!my.app.lsAppConfig} lsAppConfig
  * @constructor
  * @ngInject
  */
-my.upload_proposition.Service = function($http, $log, lsAppConfig) {
+my.upload_proposition.Service = function(vcRecaptchaService, $http, $log, lsAppConfig) {
+
+  /**
+   * @type {!angular-recaptcha.vcRecaptchaService}
+   */
+  this.vcRecaptchaService_ = vcRecaptchaService;
+
   /**
    * @type {!angular.http}
    */
@@ -40,6 +50,20 @@ my.upload_proposition.Service.prototype.create = function(form) {
   var apiUrl = this.apiUrl_;
 
   return $http.post([lsAppConfig.backendURL].join('/'), form).
+    error(function(data, status) {
+      $log.error(data);
+      $log.error(status);
+    });
+};
+
+/**
+ * Validate captcha
+ */
+my.upload_proposition.Service.prototype.validateCaptcha = function() {
+  var vcRecaptchaService = vcRecaptchaService_;
+  var captcha = vcRecaptchaService.data();
+
+  return $http.post([lsAppConfig.backendURL, 'captcha'].join('/'), captcha).
     error(function(data, status) {
       $log.error(data);
       $log.error(status);

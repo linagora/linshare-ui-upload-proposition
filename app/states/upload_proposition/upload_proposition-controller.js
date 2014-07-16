@@ -5,13 +5,20 @@ goog.provide('my.upload_proposition.Ctrl');
 /**
  * UploadProposition controller.
  *
+ * @param {!angular-growl.growl} growl
  * @param {!my.app.locale} locale
  * @param {!my.upload_proposition.Service} UploadProposition
+ * @param {!my.app.lsAppConfig} lsAppConfig
  * @constructor
  * @ngInject
  * @export
  */
-my.upload_proposition.Ctrl = function(locale, UploadProposition) {
+my.upload_proposition.Ctrl = function(growl, locale, UploadProposition, lsAppConfig) {
+
+  /**
+   * @type {!angular-growl.growl}
+   */
+  this.growl_ = growl;
 
   /**
    * @type {!my.app.locale}
@@ -28,6 +35,12 @@ my.upload_proposition.Ctrl = function(locale, UploadProposition) {
    * @expose
    */
   this.form = {};
+
+  /**
+   * @type {String}
+   * @expose
+   */
+  this.recaptchaPublicKey = lsAppConfig.recaptchaPublicKey;
 };
 
 /**
@@ -36,10 +49,19 @@ my.upload_proposition.Ctrl = function(locale, UploadProposition) {
  * @export
  */
 my.upload_proposition.Ctrl.prototype.submit = function() {
+  var growl = this.growl_;
   var UploadProposition = this.UploadProposition_;
   var form = this.form;
 
-  UploadProposition.create(form);
+  UploadProposition.validateCaptcha().then(function(valid) {
+    if (valid) {
+      UploadProposition.create(form);
+
+    } else {
+      growl.addErrorMessage('VALIDATION_ERROR.INVALID_CAPTCHA');
+      console.error('Captcha error');
+    }
+  });
 };
 
 /**
