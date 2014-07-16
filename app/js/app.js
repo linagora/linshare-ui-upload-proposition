@@ -19,6 +19,8 @@ angular.module('app', [
   'chieffancypants.loadingBar',
   'angular-growl',
   'vcRecaptcha',
+  'validation',
+  'validation.rule',
   my.upload_proposition.module.name
 ])
 .config(config)

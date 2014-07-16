@@ -44,7 +44,8 @@
     "angular-growl": "~0.4.0",
     "normalize-css": "~3.0.1",
     "angular-recaptcha": "~1.0.1",
-    "recaptcha-ajax": "*"
+    "recaptcha-ajax": "*",
+    "angular-validation": "~1.2.1"
   },
   "overrides": {
     "closure-compiler": {
@@ -171,6 +172,18 @@
       "main": {
         "development": "release/angular-recaptcha.js",
         "production": "release/angular-recaptcha.min.js"
+      }
+    },
+    "angular-validation": {
+      "main": {
+        "development": [
+          "dist/angular-validation.js",
+          "dist/angular-validation-rule.js"
+        ],
+        "production": [
+          "dist/angular-validation.min.js",
+          "dist/angular-validation-rule.min.js"
+        ]
       }
     }
   },
