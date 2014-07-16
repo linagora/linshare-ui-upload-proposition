@@ -26,8 +26,11 @@
     "closure-compiler": "http://dl.google.com/closure-compiler/compiler-latest.zip",
     "closure-compiler-github": "https://github.com/google/closure-compiler.git",
     "closure-library-github": "https://github.com/google/closure-library.git",
+    "normalize-css": "~3.0.1",
     "lodash": "~2.4.1",
     "messageformat": "~0.1.8",
+    "recaptcha-ajax": "*",
+    "node-uuid": "~1.4.1",
     "angular": "~1.2.19",
     "angular-cookies": "~1.2.19",
     "angular-resource": "~1.2.19",
@@ -42,9 +45,7 @@
     "angular-bootstrap": "~0.11.0",
     "angular-loading-bar": "~0.4.3",
     "angular-growl": "~0.4.0",
-    "normalize-css": "~3.0.1",
     "angular-recaptcha": "~1.0.1",
-    "recaptcha-ajax": "*",
     "angular-validation": "~1.2.1"
   },
   "overrides": {
@@ -57,10 +58,19 @@
     "closure-library-github": {
       "ignore": true
     },
+    "normalize-css": {
+      "ignore": true
+    },
     "lodash": {
       "main": {
         "development": "dist/lodash.js",
         "production": "dist/lodash.min.js"
+      }
+    },
+    "recaptcha-ajax": {
+      "main": {
+        "development": "recaptcha_ajax.js",
+        "production": "recaptcha_ajax.js"
       }
     },
     "node-uuid": {
@@ -164,9 +174,6 @@
         "development": "ng-table.js",
         "production": "ng-table.min.js"
       }
-    },
-    "normalize-css": {
-      "ignore": true
     },
     "angular-recaptcha": {
       "main": {
