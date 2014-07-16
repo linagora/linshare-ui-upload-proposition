@@ -36,6 +36,11 @@ npm update [my_package] --save-dev
 bower list
 ```
 
+### Synchronization between package.json and bower.json
+Fields 'name', 'version', 'description', 'license', 'homepage' are synchronize from package.json to bower.json.
+Bower.json is copy in dist folder in build task as about.json to trace version etc.
+Do not modify them in bower.json or about.json, package.json rule them all.
+
 ### Update bower package
 
 ```
