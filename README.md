@@ -4,6 +4,10 @@
 
 ## Contributions
 
+### Dependencies
+
+ * Java 7 JRE (for closure compiler)
+
 ### Main gulp commands
 ```
 gulp serve
