@@ -11,8 +11,7 @@
     </button>
   </div>
     <p>{{'PARAGRAPH.DESCRIPTION' | translate}}</p>
-    <form name="uploadPropositionForm" novalidate
-          x-ng-submit="upload_proposition.submit()">
+    <form name="uploadPropositionForm">
       <fieldset>
         <legend>
           {{'LEGEND_USER' | translate}}
@@ -20,35 +19,35 @@
         <div class="col-md-7 col-md-offset-2">
           <div class="form-group">
             <div class="form-inline">
-              <div class="form-group"
-                x-ng-class="{'has-error': uploadPropositionForm.firstName.$invalid &&
-                (uploadPropositionForm.firstName.$dirty || ls.uploadPropositionForm.attempted)}">
+              <div class="form-group">
                 <input type="text" class="form-control" name="firstName"
                        placeholder="{{'FORM.FIRSTNAME' | translate}}"
-                       x-ng-model="upload_proposition.form.firstName" />
+                       x-ng-model="upload_proposition.form.firstName"
+                       x-validator="required"
+                       x-valid-method="blur">
               </div>
-              <div class="form-group"
-                x-ng-class="{'has-error': uploadPropositionForm.lastName.$invalid &&
-                (uploadPropositionForm.lastName.$dirty || ls.uploadPropositionForm.attempted)}">
+              <div class="form-group">
                 <input type="text" class="form-control" name="lastName"
                        placeholder="{{'FORM.LASTNAME' | translate}}"
-                       x-ng-model="upload_proposition.form.lastName" />
+                       x-ng-model="upload_proposition.form.lastName"
+                       x-validator="required"
+                       x-valid-method="blur">
               </div>
             </div>
           </div>
-          <div class="form-group"
-            x-ng-class="{'has-error': uploadPropositionForm.senderEmail.$invalid &&
-            (uploadPropositionForm.senderEmail.$dirty || ls.uploadPropositionForm.attempted)}">
-            <input type="email" class="form-control" name="senderEmail"
+          <div class="form-group">
+            <input type="text" class="form-control" name="senderEmail"
                    placeholder="{{'FORM.SENDER_EMAIL' | translate}}"
-                   x-ng-model="upload_proposition.form.mail" />
+                   x-ng-model="upload_proposition.form.mail"
+                   x-validator="email"
+                   x-valid-method="blur">
           </div>
-          <div class="form-group"
-            x-ng-class="{'has-error': uploadPropositionForm.targetEmail.$invalid &&
-            (uploadPropositionForm.targetEmail.$dirty || ls.uploadPropositionForm.attempted)}">
-            <input type="email" class="form-control" name="targetEmail"
+          <div class="form-group">
+            <input type="text" class="form-control" name="targetEmail"
                    placeholder="{{'FORM.TARGET_EMAIL' | translate}}"
-                   x-ng-model="upload_proposition.form.recipientMail" />
+                   x-ng-model="upload_proposition.form.recipientMail"
+                   x-validator="email"
+                   x-valid-method="blur">
           </div>
         </div>
       </fieldset>
@@ -57,19 +56,19 @@
           {{'LEGEND_PROPOSAL' | translate}}
         </legend>
         <div class="col-md-8 col-md-offset-2">
-          <div class="form-group"
-            x-ng-class="{'has-error': uploadPropositionForm.subject.$invalid &&
-            (uploadPropositionForm.subject.$dirty || ls.uploadPropositionForm.attempted)}">
+          <div class="form-group">
             <input type="text" class="form-control" name="subject"
                    placeholder="{{'FORM.SUBJECT' | translate}}"
-                   x-ng-model="upload_proposition.form.subject" />
+                   x-ng-model="upload_proposition.form.subject"
+                   x-validator="required"
+                   x-valid-method="blur">
           </div>
-          <div class="form-group"
-            x-ng-class="{'has-error': uploadPropositionForm.content.$invalid &&
-            (uploadPropositionForm.content.$dirty || ls.uploadPropositionForm.attempted)}">
+          <div class="form-group">
             <textarea class="form-control" name="content"
                    placeholder="{{'FORM.CONTENT' | translate}}"
-                   x-ng-model="upload_proposition.form.body">
+                   x-ng-model="upload_proposition.form.body"
+                   x-validator="required"
+                   x-valid-method="blur">
             </textarea>
           </div>
         </div>
@@ -87,10 +86,12 @@
           <div class="form-group">
             <div class="controls">
               <button type="button" class="btn btn-warning" id="reset"
-                      x-ng-click="upload_proposition.reset()">
+                      x-validation-reset="uploadPropositionForm">
                 {{'FORM_ACTIONS.RESET' | translate}}
               </button>
-              <button type="submit" class="btn btn-success" id="submit">
+              <button type="submit" class="btn btn-success" id="submit"
+                      x-validation-submit="uploadPropositionForm"
+                      x-ng-click="upload_proposition.submit()">
                 {{'FORM_ACTIONS.SUBMIT' | translate}}
               </button>
             </div>
