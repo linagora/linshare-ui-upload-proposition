@@ -1,7 +1,8 @@
 {
   "TITLE": "Demande d'invitation de dépôt",
   "PARAGRAPH": {
-    "DESCRIPTION": "Ce formulaire vous permettra de soumettre une demande d'invitation de dépôt à votre interlocuteur. Un courriel vous sera adressé suite à l'acceptation ou au refus de votre demande. En cas d'une réponse positive, les informations nécessaires pour déposer vos fichiers vous seront transmises"
+    "DESCRIPTION": "Ce formulaire vous permettra de soumettre une demande d'invitation de dépôt à votre interlocuteur. Un courriel vous sera adressé suite à l'acceptation ou au refus de votre demande. En cas d'une réponse positive, les informations nécessaires pour déposer vos fichiers vous seront transmises",
+    "CONFIRMATION": "Votre demande a bien été soumise. Un courriel vous sera adressé suite à l'acceptation ou au refus de votre demande. En cas d'une réponse positive, les informations nécessaires pour déposer vos fichiers vous seront transmises par email"
   },
   "LANGUAGE": {
     "ENGLISH": "Anglais",

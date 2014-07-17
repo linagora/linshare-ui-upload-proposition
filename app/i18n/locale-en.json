@@ -1,7 +1,8 @@
 {
   "TITLE": "Upload proposition",
   "PARAGRAPH": {
-    "DESCRIPTION": "This application form create an upload proposition to your recipient. An email will be send to you after analyse of your proposition. In case of positive response, information relative to your upload will be send"
+    "DESCRIPTION": "This application form create an upload proposition to your recipient. An email will be send to you after analyse of your proposition. In case of positive response, information relative to your upload will be send",
+    "CONFIRMATION": "Your proposition has been submitted. A mail will be sent to you right after validation or rejection of your proposition. In case of a positive response, information for deposit will be sent to you."
   },
   "LANGUAGE": {
     "ENGLISH": "English",

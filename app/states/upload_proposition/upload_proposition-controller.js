@@ -5,6 +5,7 @@ goog.provide('my.upload_proposition.Ctrl');
 /**
  * UploadProposition controller.
  *
+ * @param {!angular-ui-router.$state} $state
  * @param {!angular-growl.growl} growl
  * @param {!my.app.locale} locale
  * @param {!my.upload_proposition.Service} UploadProposition
@@ -13,7 +14,12 @@ goog.provide('my.upload_proposition.Ctrl');
  * @ngInject
  * @export
  */
-my.upload_proposition.Ctrl = function(growl, locale, UploadProposition, lsAppConfig) {
+my.upload_proposition.Ctrl = function($state, growl, locale, UploadProposition, lsAppConfig) {
+
+  /**
+   * @type {!angular-ui-router.$state}
+   */
+  this.$state_ = $state;
 
   /**
    * @type {!angular-growl.growl}
@@ -37,6 +43,12 @@ my.upload_proposition.Ctrl = function(growl, locale, UploadProposition, lsAppCon
   this.form = {};
 
   /**
+   * @type {Boolean}
+   * @expose
+   */
+  this.confirmed = false;
+
+  /**
    * @type {String}
    * @expose
    */
@@ -49,18 +61,20 @@ my.upload_proposition.Ctrl = function(growl, locale, UploadProposition, lsAppCon
  * @export
  */
 my.upload_proposition.Ctrl.prototype.submit = function() {
+  var $state = this.$state_;
   var growl = this.growl_;
   var UploadProposition = this.UploadProposition_;
   var form = this.form;
+  var self = this;
 
   UploadProposition.create(form)
     .success(function () {
-      alert('OK');
+      self.confirmed = true;
     })
     .error(function () {
       growl.addErrorMessage('VALIDATION_ERROR.INVALID_CAPTCHA');
       console.error('Captcha error');
-  });
+    });
 };
 
 /**
