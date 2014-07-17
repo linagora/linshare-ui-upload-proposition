@@ -44,25 +44,11 @@ my.upload_proposition.Service.prototype.create = function(form) {
   var $log = this.$log_;
   var lsAppConfig = this.lsAppConfig_;
 
-  return $http.post([lsAppConfig.backendURL].join('/'), form).
-    error(function(data, status) {
-      $log.error(data);
-      $log.error(status);
-    });
-};
-
-/**
- * Validate captcha
- */
-my.upload_proposition.Service.prototype.validateCaptcha = function() {
-  var $http = this.$http_;
-  var $log = this.$log_;
-  var vcRecaptchaService = this.vcRecaptchaService_;
-  var lsAppConfig = this.lsAppConfig_;
-
   var captcha = vcRecaptchaService.data();
+  form.captcha_response = captcha.response;
+  form.captcha_challenge = captcha.challenge;
 
-  return $http.post([lsAppConfig.backendURL, 'captcha'].join('/'), captcha).
+  return $http.post([lsAppConfig.backendURL].join('/'), form).
     error(function(data, status) {
       $log.error(data);
       $log.error(status);

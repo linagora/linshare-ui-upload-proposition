@@ -53,10 +53,8 @@ my.upload_proposition.Ctrl.prototype.submit = function() {
   var UploadProposition = this.UploadProposition_;
   var form = this.form;
 
-  UploadProposition.validateCaptcha().then(function(valid) {
+  UploadProposition.create(form).then(function(valid) {
     if (valid) {
-      UploadProposition.create(form);
-
     } else {
       growl.addErrorMessage('VALIDATION_ERROR.INVALID_CAPTCHA');
       console.error('Captcha error');
