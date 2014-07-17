@@ -42,6 +42,7 @@ my.upload_proposition.Service = function(vcRecaptchaService, $http, $log, lsAppC
 my.upload_proposition.Service.prototype.create = function(form) {
   var $http = this.$http_;
   var $log = this.$log_;
+  var vcRecaptchaService = this.vcRecaptchaService_;
   var lsAppConfig = this.lsAppConfig_;
 
   var captcha = vcRecaptchaService.data();
