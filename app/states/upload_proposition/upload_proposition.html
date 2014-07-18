@@ -98,22 +98,22 @@
                  x-theme="clean"
                  x-key="upload_proposition.recaptchaPublicKey">
             </div>
-            <br>
-            <div class="form-group">
-              <div class="controls">
-                <button type="button" class="btn btn-warning" id="reset"
-                        x-validation-reset="uploadPropositionForm">
-                  {{'FORM_ACTIONS.RESET' | translate}}
-                </button>
-                <button type="submit" class="btn btn-success" id="submit"
-                        x-validation-submit="uploadPropositionForm"
-                        x-ng-click="upload_proposition.submit()">
-                  {{'FORM_ACTIONS.SUBMIT' | translate}}
-                </button>
-              </div>
-            </div>
           </div>
         </fieldset>
+        <br>
+        <div class="form-group">
+          <div class="controls">
+            <button type="button" class="btn btn-warning" id="reset"
+            	x-validation-reset="uploadPropositionForm">
+              {{'FORM_ACTIONS.RESET' | translate}}
+            </button>
+            <button type="submit" class="btn btn-success" id="submit"
+            	x-validation-submit="uploadPropositionForm"
+            	x-ng-click="upload_proposition.submit()">
+              {{'FORM_ACTIONS.SUBMIT' | translate}}
+            </button>
+          </div>
+        </div>
       </form>
     </div>
   </div>
