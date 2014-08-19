@@ -28,6 +28,9 @@
     "RESET": "Réinitialiser",
     "SUBMIT": "Envoyer"
   },
+  "VALIDATION_ERROR": {
+    "INVALID_CAPTCHA": "Captcha invalide"
+  },
   "404": {
     "TITLE": "Oups! Page introuvable.",
     "CONTENT": "Nous ne pouvons pas trouver la page que vous chercher."

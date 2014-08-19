@@ -28,6 +28,9 @@
     "RESET": "Reset",
     "SUBMIT": "Submit"
   },
+  "VALIDATION_ERROR": {
+    "INVALID_CAPTCHA": "Invalid captcha"
+  },
   "404": {
     "TITLE": "Oops! Page not found.",
     "CONTENT": "We could not find the page you were looking for."
