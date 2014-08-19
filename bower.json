@@ -46,7 +46,7 @@
     "angular-loading-bar": "~0.4.3",
     "angular-growl": "~0.4.0",
     "angular-recaptcha": "~1.0.1",
-    "angular-validation": "~1.2.1"
+    "angular-validation": "1.2.2"
   },
   "overrides": {
     "closure-compiler": {
