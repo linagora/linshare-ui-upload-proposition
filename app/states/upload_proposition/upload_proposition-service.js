@@ -53,7 +53,7 @@ my.upload_proposition.Service.prototype.create = function(form) {
     error(function(data, status) {
       $log.error(data);
       $log.error(status);
-      if (status === 400 && code === 1000) {
+      if (status === 400 && data.code === 1000) {
         vcRecaptchaService.reload();
       }
     });
