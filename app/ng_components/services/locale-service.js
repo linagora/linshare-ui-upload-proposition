@@ -46,3 +46,15 @@ my.locale.Service.prototype.changeLanguage = function(key) {
   $translate.use(key);
   tmhDynamicLocale.set(key);
 };
+
+/**
+ * Get the current language of the app
+ *
+ * @export
+ */
+my.locale.Service.prototype.getLanguage = function() {
+  var $log = this.$log_;
+  var $translate = this.$translate_;
+
+  return $translate.use();
+};

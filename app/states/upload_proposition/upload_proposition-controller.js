@@ -71,9 +71,10 @@ my.upload_proposition.Ctrl.prototype.submit = function() {
     .success(function () {
       self.confirmed = true;
     })
-    .error(function () {
-      growl.addErrorMessage('VALIDATION_ERROR.INVALID_CAPTCHA');
-      console.error('Captcha error');
+    .error(function (data, status) {
+      if (status === 400 && data.code === 1000) {
+        growl.addErrorMessage('VALIDATION_ERROR.INVALID_CAPTCHA');
+      }
     });
 };
 
@@ -98,4 +99,15 @@ my.upload_proposition.Ctrl.prototype.changeLanguage = function(key) {
   var locale = this.locale_;
 
   locale.changeLanguage(key);
+};
+
+/**
+ * Get the current language of the form
+ *
+ * @export
+ */
+my.upload_proposition.Ctrl.prototype.getLanguage = function() {
+  var locale = this.locale_;
+
+  return locale.getLanguage();
 };
