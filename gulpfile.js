@@ -157,7 +157,7 @@ gulp.task('watch', ['build'], function() {
       baseDir: [paths.dest]
     },
     ports: {
-      min: 3501,
+      min: 3503,
       max: 3600
     },
     notify: false
