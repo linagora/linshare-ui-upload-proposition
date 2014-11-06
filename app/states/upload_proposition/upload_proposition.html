@@ -27,7 +27,10 @@
             <div class="form-group">
               <div class="row">
                 <div class="col-md-6">
-                  <input type="text" class="form-control" name="firstName"
+                    <!--[if IE 9]>
+                    <label for="firstName">{{'FORM.FIRSTNAME' | translate}}</label>
+                    <![endif]-->
+                    <input type="text" class="form-control" name="firstName" id="firstName"
                          placeholder="{{'FORM.FIRSTNAME' | translate}}"
                          x-ng-model="upload_proposition.form.firstName"
                          x-validator="required"
@@ -35,7 +38,10 @@
                          x-valid-method="blur">
                 </div>
                 <div class="col-md-6">
-                  <input type="text" class="form-control" name="lastName"
+                    <!--[if IE 9]>
+                    <label for="lastName">{{'FORM.LASTNAME' | translate}}</label>
+                    <![endif]-->
+                    <input type="text" class="form-control" name="lastName" id="lastname"
                          placeholder="{{'FORM.LASTNAME' | translate}}"
                          x-ng-model="upload_proposition.form.lastName"
                          x-validator="required"
@@ -45,7 +51,10 @@
               </div>
             </div>
             <div class="form-group">
-              <input type="text" class="form-control" name="senderEmail"
+                <!--[if IE 9]>
+                <label for="senderEmail">{{'FORM.SENDER_EMAIL' | translate}}</label>
+                <![endif]-->
+                <input type="text" class="form-control" name="senderEmail" id="senderEmail"
                      placeholder="{{'FORM.SENDER_EMAIL' | translate}}"
                      x-ng-model="upload_proposition.form.mail"
                      x-validator="email"
@@ -54,7 +63,10 @@
               <span class="help-block">{{'FORM.EXAMPLE_SENDER' | translate}}</span>
             </div>
             <div class="form-group">
-              <input type="text" class="form-control" name="targetEmail"
+                <!--[if IE 9]>
+                <label for="targetEmail">{{'FORM.RECIPIENT_EMAIL' | translate}}</label>
+                <![endif]-->
+                <input type="text" class="form-control" name="targetEmail" id="targetEmail"
                      placeholder="{{'FORM.RECIPIENT_EMAIL' | translate}}"
                      x-ng-model="upload_proposition.form.recipientMail"
                      x-validator="email"
@@ -70,7 +82,10 @@
           </legend>
           <div class="col-md-8 col-md-offset-2">
             <div class="form-group">
-              <input type="text" class="form-control" name="subject"
+                <!--[if IE 9]>
+                <label for="subject">{{'FORM.SUBJECT' | translate}}</label>
+                <![endif]-->
+                <input type="text" class="form-control" name="subject" id="subject"
                      placeholder="{{'FORM.SUBJECT' | translate}}"
                      x-ng-model="upload_proposition.form.subject"
                      x-validator="required"
@@ -78,13 +93,16 @@
                      x-valid-method="blur">
             </div>
             <div class="form-group">
-              <textarea class="form-control" name="content"
+                <!--[if IE 9]>
+                <label for="content">{{'FORM.CONTENT' | translate}}</label>
+                <![endif]-->
+                <textarea class="form-control" name="content" id="content"
                      placeholder="{{'FORM.CONTENT' | translate}}"
                      x-ng-model="upload_proposition.form.body"
                      x-validator="required"
                      x-required-error-message="{{'FORM.REQUIRED_FIELD' | translate}}"
                      x-valid-method="blur">
-              </textarea>
+                </textarea>
             </div>
           </div>
         </fieldset>
