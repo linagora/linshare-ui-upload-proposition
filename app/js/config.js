@@ -3,5 +3,6 @@ angular.module('app').constant('lsAppConfig', {
   customLogoURL: undefined, // eg: 'http://my.app/logo.png'
   defaultLogo: 'img/logo_linshare.png', // put undefined to remove the logo  or put the url or the relative path (from index.html file) of the logo
   recaptchaPublicKey: undefined,
+  defaultLocale: 'fr', // values : 'en', 'fr'
   debug: true
 });

@@ -55,7 +55,7 @@ function config($logProvider, $stateProvider, $urlRouterProvider, $translateProv
     prefix: 'i18n/locale-',
     suffix: '.json'
   });
-  $translateProvider.preferredLanguage('en');
+  $translateProvider.preferredLanguage(lsAppConfig.defaultLocale);
   $translateProvider.addInterpolation('$translateMessageFormatInterpolation');
   $translateProvider.useMissingTranslationHandlerLog();
   $translateProvider.useCookieStorage();
