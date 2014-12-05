@@ -57,7 +57,11 @@ my.logo.Directive.prototype.link = function(scope, elem, attrs) {
   this.attrs = attrs;
 
   if (lsAppConfig.customLogoURL) {
-    var tag = '<img src="' + lsAppConfig.customLogoURL + '">';
+    var tag = '<img class="pull-right" src="' + lsAppConfig.customLogoURL + '">';
     this.elem.append(tag);
+  }
+  if (lsAppConfig.defaultLogo) {
+    var dafaultTag = '<img class="pull-left" src="' + lsAppConfig.defaultLogo + '">';
+    this.elem.append(dafaultTag);
   }
 };

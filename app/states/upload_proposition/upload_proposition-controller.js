@@ -75,6 +75,9 @@ my.upload_proposition.Ctrl.prototype.submit = function() {
       if (status === 400 && data.code === 1000) {
         growl.addErrorMessage('VALIDATION_ERROR.INVALID_CAPTCHA');
       }
+      if (status === 503) {
+        growl.addErrorMessage('VALIDATION_ERROR.SERVER_ERROR');
+      }
     });
 };
 

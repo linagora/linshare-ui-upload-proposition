@@ -14,8 +14,8 @@
   "FORM": {
     "REQUIRED_FIELD": "Ce champs est requis",
     "REQUIRED_OR_INVALID_FIELD": "Ce champs est incomplet",
-    "FIRSTNAME": "Prénom",
-    "LASTNAME": "Nom",
+    "FIRSTNAME": "Votre Prénom",
+    "LASTNAME": "Votre Nom",
     "SENDER_EMAIL": "Votre adresse électronique",
     "RECIPIENT_EMAIL": "Adresse électronique du destinataire de la demande",
     "EXAMPLE_SENDER": "ex: john.smith@emetteur.com",
@@ -29,7 +29,8 @@
     "SUBMIT": "Envoyer"
   },
   "VALIDATION_ERROR": {
-    "INVALID_CAPTCHA": "Captcha invalide"
+    "INVALID_CAPTCHA": "Captcha invalide",
+    "SERVER_ERROR": "Serveur indisponible"
   },
   "404": {
     "TITLE": "Oups! Page introuvable.",

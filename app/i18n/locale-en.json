@@ -14,8 +14,8 @@
   "FORM": {
     "REQUIRED_FIELD": "This field is required",
     "REQUIRED_OR_INVALID_FIELD": "This field is not completed",
-    "FIRSTNAME": "First name",
-    "LASTNAME": "Last name",
+    "FIRSTNAME": "Your first name",
+    "LASTNAME": "Your last name",
     "SENDER_EMAIL": "Your email",
     "RECIPIENT_EMAIL": "Proposition's recipient email",
     "EXAMPLE_SENDER": "eg: john.smith@sender.com",
@@ -29,7 +29,8 @@
     "SUBMIT": "Submit"
   },
   "VALIDATION_ERROR": {
-    "INVALID_CAPTCHA": "Invalid captcha"
+    "INVALID_CAPTCHA": "Invalid captcha",
+    "SERVER_ERROR": "Service unavailable"
   },
   "404": {
     "TITLE": "Oops! Page not found.",
