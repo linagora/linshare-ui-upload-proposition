@@ -1,6 +1,6 @@
 {
   "name": "linshare-ui-upload-proposition",
-  "version": "1.0.2",
+  "version": "1.0.3-SNAPSHOT",
   "description": "Linshare upload proposition UI",
   "main": "app/index.js",
   "keywords": [

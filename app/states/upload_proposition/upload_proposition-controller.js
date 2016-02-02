@@ -38,19 +38,19 @@ my.upload_proposition.Ctrl = function($state, growl, locale, UploadProposition, 
 
   /**
    * @type {Object}
-   * @expose
+   * @nocollapse
    */
   this.form = {};
 
   /**
    * @type {Boolean}
-   * @expose
+   * @nocollapse
    */
   this.confirmed = false;
 
   /**
    * @type {String}
-   * @expose
+   * @nocollapse
    */
   this.recaptchaPublicKey = lsAppConfig.recaptchaPublicKey;
 };
